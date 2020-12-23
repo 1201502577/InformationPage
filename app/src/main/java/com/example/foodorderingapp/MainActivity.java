@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.LruCache;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,11 +34,34 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<food_Item> food_items = new ArrayList<food_Item>();
     RequestQueue queue;
+    ImageView Category_Msia, Category_Western,History;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Category_Msia = findViewById(R.id.Category_Msia);
+        Category_Western = findViewById(R.id.Category_Western);
+        History = findViewById(R.id.history);
+        Category_Msia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Directing to Malaysian Delights page ... ", Toast.LENGTH_LONG).show();
+            }
+        });
+        Category_Western.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Directing to Western Food page ...", Toast.LENGTH_LONG).show();
+            }
+        });
+        History.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Directing to History page ...", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         //LinearLayoutManager layoutManager= new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView popularView = findViewById(R.id.popularView);
@@ -63,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
                                         String icon = item.getString("icon");
                                         String price = item.getString("price");
                                         String rating = item.getString("rating");
-                                        food_Item foodItem = new food_Item(name,icon,price,rating);
+                                        int delivery = item.getInt("delivery");
+                                        food_Item foodItem = new food_Item(name,icon,price,rating,delivery);
                                         food_items.add(foodItem);
                                     } catch (JSONException e) {
                                         e.printStackTrace();
@@ -99,6 +124,12 @@ public class MainActivity extends AppCompatActivity {
             holder.fName.setText(elements.get(position).getName());
             holder.fRating.setText(elements.get(position).getRating());
             holder.fPrice.setText("RM " + elements.get(position).getPrice());
+            int tempDelivery = elements.get(position).getDelivery();
+            if (tempDelivery==0){
+                holder.fDelivery.setText("FREE Delivery");
+            }else {
+                holder.fDelivery.setText("RM " + Integer.toString(tempDelivery) + ".00");
+            }
 
             String iconUrl = "https://raw.githubusercontent.com/WillyLiew/DeliveryApp/master/"+elements.get(position).getIcon();
             final LruCache<String, Bitmap> cache =new LruCache<String, Bitmap>(20);
@@ -128,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-            public TextView fName, fRating, fPrice;
+            public TextView fName, fRating, fPrice, fDelivery;
             public NetworkImageView fIcon;
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -136,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
                 fName = itemView.findViewById(R.id.popular_name);
                 fRating = itemView.findViewById(R.id.popular_rating);
                 fPrice =itemView.findViewById(R.id.popular_price);
+                fDelivery = itemView.findViewById(R.id.popular_delivery);
                 itemView.setOnClickListener(this);
             }
 

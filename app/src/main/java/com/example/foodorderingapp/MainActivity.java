@@ -40,21 +40,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Category_Msia = findViewById(R.id.Category_Msia);
-        Category_Western = findViewById(R.id.Category_Western);
+
         History = findViewById(R.id.history);
-        Category_Msia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Directing to Malaysian Delights page ... ", Toast.LENGTH_LONG).show();
-            }
-        });
-        Category_Western.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Directing to Western Food page ...", Toast.LENGTH_LONG).show();
-            }
-        });
         History.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //LinearLayoutManager layoutManager= new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView popularView = findViewById(R.id.popularView);
-        //popularView.setLayoutManager(layoutManager);
         popularView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) );
 
         final PopularAdapter popularAdapter = new PopularAdapter();
@@ -107,6 +92,26 @@ public class MainActivity extends AppCompatActivity {
                 );
 
         queue.add(request);
+    }
+
+    public void onClickCategory(View view) {
+        Intent foodCategory = new Intent(MainActivity.this,FoodCategory.class);
+        switch(view.getId()) {
+            case R.id.Msia_category:
+                foodCategory.putExtra("category","msia");
+                break;
+            case R.id.Western_category:
+                foodCategory.putExtra("category","western");;
+                break;
+            case R.id.Asian_category:
+                foodCategory.putExtra("category","sushi roll");
+                break;
+            case R.id.Dessert_category:
+                foodCategory.putExtra("category","kopi ais");
+                break;
+
+        }
+        startActivity(foodCategory);
     }
 
     class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.MyViewHolder>{

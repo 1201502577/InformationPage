@@ -13,8 +13,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
-        android:text="Deliveries to"
-        android:textColor="#4CAF50"
+        android:text="Delivering to"
+        android:textColor="#673AB7"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -52,6 +52,7 @@
         android:background="@drawable/search_row"
         android:drawableLeft="@drawable/ic_search_black_24dp"
         android:ems="10"
+        android:focusable="auto"
         android:hint="What do you fancy?"
         android:inputType="textPersonName"
         android:textSize="14sp"
@@ -199,5 +200,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Dessert_category" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="72dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="onClickCart"
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/cart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

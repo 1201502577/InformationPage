@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FoodCategory"></activity>
+        <activity
+            android:name=".Cart"
+            android:label="@string/title_activity_cart"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".FoodCategory" />
         <activity android:name=".AddToCart" />
         <activity android:name=".MainActivity">
             <intent-filter>

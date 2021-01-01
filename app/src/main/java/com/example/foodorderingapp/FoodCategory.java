@@ -40,6 +40,10 @@ public class FoodCategory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_category);
+        String type = getIntent().getStringExtra("type");
+        TextView category_type=findViewById(R.id.Category_type);
+        category_type.setText(type);
+
         RecyclerView categoryView=findViewById(R.id.categoryView);
         categoryView.setLayoutManager(new LinearLayoutManager(this));
         categoryAdapter = new CategoryAdapter();
@@ -144,9 +148,18 @@ public class FoodCategory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = elements.get(getAdapterPosition()).getName();
+                String price = elements.get(getAdapterPosition()).getPrice();
+                String rating = elements.get(getAdapterPosition()).getRating();
+                String icon = elements.get(getAdapterPosition()).getIcon();
+                int delivery = elements.get(getAdapterPosition()).getDelivery();
                 Intent addtocart = new Intent(FoodCategory.this, AddToCart.class);
                 addtocart.putExtra("name",name);
+                addtocart.putExtra("price",price);
+                addtocart.putExtra("rating",rating);
+                addtocart.putExtra("delivery",delivery);
+                addtocart.putExtra("icon",icon);
                 startActivity(addtocart);
+
 
             }
         }

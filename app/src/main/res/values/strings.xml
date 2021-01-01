@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Food Ordering App</string>
     <string name="beverage">Desserts &amp; Beverages</string>
+    <string name="title_activity_cart">Cart</string>
 </resources>

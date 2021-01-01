@@ -99,19 +99,28 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.Msia_category:
                 foodCategory.putExtra("category","msia");
+                foodCategory.putExtra("type","Malaysian Cuisine");
                 break;
             case R.id.Western_category:
-                foodCategory.putExtra("category","western");;
+                foodCategory.putExtra("category","western");
+                foodCategory.putExtra("type","Western Delights");
                 break;
             case R.id.Asian_category:
-                foodCategory.putExtra("category","sushi roll");
+                foodCategory.putExtra("category","asian");
+                foodCategory.putExtra("type","Asian Flavours");
                 break;
             case R.id.Dessert_category:
-                foodCategory.putExtra("category","kopi ais");
+                foodCategory.putExtra("category","beverage");
+                foodCategory.putExtra("type","Desserts & Beverages");
                 break;
 
         }
         startActivity(foodCategory);
+    }
+
+    public void onClickCart(View view) {
+        Intent cartActivity = new Intent(MainActivity.this,Cart.class);
+        startActivity(cartActivity);
     }
 
     class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.MyViewHolder>{
@@ -179,8 +188,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = elements.get(getAdapterPosition()).getName();
+                String price = elements.get(getAdapterPosition()).getPrice();
+                String icon = elements.get(getAdapterPosition()).getIcon();
+                String rating = elements.get(getAdapterPosition()).getRating();
+                int delivery = elements.get(getAdapterPosition()).getDelivery();
                 Intent addtocart = new Intent(MainActivity.this, AddToCart.class);
                 addtocart.putExtra("name",name);
+                addtocart.putExtra("price",price);
+                addtocart.putExtra("rating",rating);
+                addtocart.putExtra("delivery",delivery);
+                addtocart.putExtra("icon",icon);
                 startActivity(addtocart);
 
             }

@@ -125,14 +125,14 @@
         app:srcCompat="@drawable/delivery" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/cart_description"
         android:layout_width="349dp"
         android:layout_height="117dp"
         android:layout_marginTop="8dp"
         android:gravity="center_vertical"
-        android:text="Description on the food"
+        android:text=" "
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -146,5 +146,5 @@
         android:text="Add to cart - RM8.50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/cart_description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

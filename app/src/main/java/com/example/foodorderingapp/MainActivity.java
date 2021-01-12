@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         JsonArrayRequest request =
                 new JsonArrayRequest(
                         Request.Method.GET,
-                        "https://raw.githubusercontent.com/WillyLiew/DeliveryApp/master/msia.json",
+                        "https://raw.githubusercontent.com/Kimidoge/FoodApp/master/Food_Directory/msia.json ",
                         null,
                         new Response.Listener<JSONArray>() {
                             @Override
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                                         String name = item.getString("name");
                                         String icon = item.getString("icon");
                                         String price = item.getString("price");
-                                        String rating = item.getString("rating");
+                                            String rating = item.getString("rating");
                                         int delivery = item.getInt("delivery");
                                         food_Item foodItem = new food_Item(name,icon,price,rating,delivery);
                                         food_items.add(foodItem);
@@ -189,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = elements.get(getAdapterPosition()).getName();
                 String price = elements.get(getAdapterPosition()).getPrice();
+                String description = elements.get(getAdapterPosition()).getDescription();
                 String icon = elements.get(getAdapterPosition()).getIcon();
                 String rating = elements.get(getAdapterPosition()).getRating();
                 int delivery = elements.get(getAdapterPosition()).getDelivery();
@@ -197,10 +198,10 @@ public class MainActivity extends AppCompatActivity {
                 addtocart.putExtra("price",price);
                 addtocart.putExtra("rating",rating);
                 addtocart.putExtra("delivery",delivery);
+                addtocart.putExtra("description",description);
                 addtocart.putExtra("icon",icon);
                 startActivity(addtocart);
-
-            }
+                }
         }
     }
 

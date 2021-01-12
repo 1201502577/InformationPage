@@ -1,7 +1,7 @@
 package com.example.foodorderingapp;
 
 public class food_Item {
-    private String name, icon, price, rating;
+    private String name, icon, price,description, rating;
     private int delivery;
 
     public food_Item(String name, String icon, String price, String rating, int delivery) {
@@ -10,6 +10,7 @@ public class food_Item {
         this.price = price;
         this.rating = rating;
         this.delivery = delivery;
+        this.description = description;
     }
 
     public String getName() {
@@ -26,6 +27,10 @@ public class food_Item {
 
     public String getRating() {
         return rating;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public int getDelivery() {

@@ -1,4 +1,4 @@
-[{"name":"Nasi Ayam", "icon":"nasi_ayam.jpg", "price":"6.50","rating":"4.9"},
-{"name":"Ayam Penyet", "icon":"ayam_penyet.jpg", "price":"8.00","rating":"4.91"},
-{"name":"Maggi Goreng", "icon":"maggi_goreng.jpg", "price":"4.50","rating":"4.88"}
+[{"name":"Nasi Ayam", "icon":"nasi_ayam.jpg", "price":"6.50","description":"nasi ayam aja","rating":"4.9"},
+{"name":"Ayam Penyet", "icon":"ayam_penyet.jpg", "price":"8.00","description":"This Indonesia dish consists of pieces of fried chicken that are served coated in sambal. a popular chilli paste. The word penyet from the name of this dish  means to press or push . reffering to the preperation methon in which the chicken is pressed by a pestle in order to make the meat more tender","rating":"4.91"},
+{"name":"Maggi Goreng", "icon":"maggi_goreng.jpg", "price":"4.50","description":"nasi manggi goreng","rating":"4.88"}
 ]

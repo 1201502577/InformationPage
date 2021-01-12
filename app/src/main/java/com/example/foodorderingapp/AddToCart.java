@@ -19,6 +19,7 @@ public class AddToCart extends AppCompatActivity {
 
     String name;
     String price;
+    String description;
     int delivery;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class AddToCart extends AppCompatActivity {
         setContentView(R.layout.activity_add_to_cart);
         name = getIntent().getStringExtra("name");
         price = getIntent().getStringExtra("price");
+        description = getIntent().getStringExtra("description");
         delivery = getIntent().getIntExtra("delivery",0);
         String rating = getIntent().getStringExtra("rating");
         String icon = getIntent().getStringExtra("icon");
@@ -35,6 +37,7 @@ public class AddToCart extends AppCompatActivity {
         Button cartPrice = findViewById(R.id.cart_price);
         TextView cartRating = findViewById(R.id.cart_rating);
         TextView cartDelivery = findViewById(R.id.cart_delivery);
+        TextView cartdescription = findViewById(R.id.cart_description);
         ImageView cartIcon = findViewById(R.id.cart_icon);
 
         cartName.setText(name);
@@ -61,6 +64,7 @@ public class AddToCart extends AppCompatActivity {
         CartActivity.putExtra("name",name);
         CartActivity.putExtra("price",price);
         CartActivity.putExtra("delivery",delivery);
+        CartActivity.putExtra("description",description);
         startActivity(CartActivity);
 
 
